@@ -9,7 +9,7 @@ import { Divider, MenuItem, Stack, TextField } from '@mui/material';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
-import { newParent } from '../../Redux management/Slice/treeSlice';
+import { newChild } from '../../Redux management/Slice/treeSlice';
 const validationSchema = yup.object({
   firstName: yup
     .string('Enter your first name')
@@ -49,7 +49,7 @@ const validationSchema = yup.object({
     .required('bio is required')
 });
 
-export const CreateTree = ({setCreateParent}) => {
+export const CreateChild = ({setCreateChild}) => {
 
     const dispatch = useDispatch()
 
@@ -93,15 +93,15 @@ const formik = useFormik({
     onSubmit: (values) => {
    values.child=[];
     values.spouse=[];
-      console.log('parent-item',values);
-      dispatch(newParent(JSON.stringify(values)))
-      setCreateParent(false);
+      console.log(JSON.stringify(values, null, 2));
+      dispatch(newChild(JSON.stringify(values)))
+      setCreateChild(false);
     },
   });
   return (
     <Card sx={{maxWidth:'800px', flexShrink:0, boxShadow:1,padding:'10px',margin:'10px'}}>
           <Typography variant="h5" gutterBottom >
-        Create Parent
+        Create Child
       </Typography>
 
            <form onSubmit={formik.handleSubmit}>
