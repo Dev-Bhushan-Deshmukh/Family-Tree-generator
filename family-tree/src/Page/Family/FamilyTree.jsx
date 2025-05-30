@@ -24,7 +24,7 @@ export const FamilyTree = () => {
   createChild && <CreateChild setCreateChild={setCreateChild}/>
  }
  
-<NodeCard nodeData={parentState} setCreateChild={setCreateChild} />
+<NodeCard id='u1' nodeData={parentState} setCreateChild={setCreateChild} />
     </div>
   )
 }
